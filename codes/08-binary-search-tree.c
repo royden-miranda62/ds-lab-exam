@@ -8,40 +8,43 @@ typedef struct BST
     struct BST *right;
 } Node;
 
+// create a node
 Node *createNode(int item)
 {
     Node *newNode = (Node *)malloc(sizeof(Node));
 
     if (newNode == NULL)
     {
-        printf("Overflow.\n");
+        printf("Error: Memory allocation failed.\n");
         exit(1);
     }
 
     newNode->data = item;
-    newNode->left = newNode->right = NULL;
+    newNode->left = NULL;
+    newNode->right = NULL;
 
     return newNode;
 }
 
+// insert a node into the tree
 void insert(Node **root, int item)
 {
-    // Handle empty tree case
     if (*root == NULL)
     {
         *root = createNode(item);
         return;
     }
 
-    // Insert in left subtree
+    // insert in left subtree
     if (item < (*root)->data)
     {
-        if ((*root)->left != NULL)
+        if ((*root)->left != NULL) // if nodes already present
             insert(&((*root)->left), item);
-        else
+        else // if no nodes present
             (*root)->left = createNode(item);
     }
-    // Insert in right subtree
+    
+    // insert in right subtree
     else if (item > (*root)->data)
     {
         if ((*root)->right != NULL)
@@ -49,7 +52,7 @@ void insert(Node **root, int item)
         else
             (*root)->right = createNode(item);
     }
-    // Duplicate values are ignored
+
 }
 
 void preorder(Node *root)

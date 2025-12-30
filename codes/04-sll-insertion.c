@@ -60,7 +60,7 @@ void insAtEnd(Node **head, int item)
 }
 
 // insert a node at a user-defined position
-void insAtLeft(Node **head, int pos, int item)
+void insAtPos(Node **head, int pos, int item)
 {
     if (pos < 1)
     {
@@ -145,8 +145,8 @@ int main()
     displayList(head);
 
     printf("\n--- Insertion At Position ---\n");
-    insAtLeft(&head, 2, 25);
-    insAtLeft(&head, 5, 45);
+    insAtPos(&head, 2, 25);
+    insAtPos(&head, 5, 45);
     displayList(head);
 
     freeList(head);

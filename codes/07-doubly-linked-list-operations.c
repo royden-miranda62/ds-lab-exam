@@ -48,7 +48,7 @@ void insAtStart(Node **head, int item)
 }
 
 // insert a node at the left of a given node
-void insAtLeft(Node **head, int pos, int item)
+void insAtPos(Node **head, int pos, int item)
 {
     if (pos < 1)
     {
@@ -158,10 +158,10 @@ int main()
     displayList(head);
 
     printf("\n--- Insert At Left ---\n");
-    insAtLeft(&head, 2, 15);
+    insAtPos(&head, 2, 15);
     displayList(head);
 
-    insAtLeft(&head, 5, 40);
+    insAtPos(&head, 5, 40);
     displayList(head);
 
     printf("\n--- Delete By Value ---\n");

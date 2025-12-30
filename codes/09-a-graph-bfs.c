@@ -14,10 +14,10 @@ void bfs(int adjacencyMatrix[SIZE][SIZE],
     int currentNode, neighbor;
     int edgeCount = 0;
 
-    for (int i = 0; i < numOfNodes; i++)
+    for (int i = 0; i < numOfNodes; i++) // initialize visited array
         visited[i] = 0;
 
-    queue[rear] = sourceNode;
+    queue[rear] = sourceNode; // insert first node at rear
     visited[sourceNode] = 1;
 
     while (front <= rear)
